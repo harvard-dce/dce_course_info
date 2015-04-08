@@ -1,1 +1,1 @@
-web: gunicorn course_admin.wsgi --log-file -
+web: gunicorn course_info.wsgi --log-file -

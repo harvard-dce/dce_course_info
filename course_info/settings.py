@@ -1,5 +1,5 @@
 """
-Django settings for course_admin project.
+Django settings for course_info project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/1.7/topics/settings/
@@ -50,9 +50,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'course_admin.urls'
+ROOT_URLCONF = 'course_info.urls'
 
-WSGI_APPLICATION = 'course_admin.wsgi.application'
+WSGI_APPLICATION = 'course_info.wsgi.application'
 
 
 # Database
