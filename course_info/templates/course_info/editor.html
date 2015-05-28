@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extra_css %}
+{% endblock %}
+
+{% block content %}
+
+
+<p>The information in this widget is provided by the registrar's office.
+        To change any information in this widget, please contact the catalog coordinator in your department.</p>
+
+
+<div id="course_info_container" class="container-fluid">
+
+<form action="{{ launch_presentation_return_url }}" method="get">
+
+
+
+{% for field in fields  %}
+    <div><input type="checkbox" name="{{ field.key }} checked">{{ field.value }}</div>
+{% endfor %}
+
+<input type="hidden" name="url" value="http://192.168.50.1:8000/course_info/widget.html?course_instance_id=312976&amp;key=title&amp;key=description" />
+<input type="hidden" name="width" value="100%" />
+<input type="hidden" name="height" value="100%" />
+<input type="hidden" name="title" value="Course Info" />
+<input type="hidden" name="return_type" value="iframe" />
+
+       <input type="submit" name="insert" value="insert" />
+</form>
+
+{% endblock %}
+
+
