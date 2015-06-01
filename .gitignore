@@ -32,5 +32,6 @@ pip-log.txt
 
 tmp
 .env
+.env_herkoku
 *.sqlite3
 static_root
