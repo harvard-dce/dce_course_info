@@ -3,6 +3,10 @@
 {% block extra_css %}
 {% endblock %}
 
+{% block extra_js %}
+    <script src="{% static 'js/course_info_editor.js' %}"></script>
+{% endblock %}
+
 {% block content %}
 
 
@@ -20,7 +24,7 @@
     <div><input type="checkbox" name="{{ field.key }} checked">{{ field.value }}</div>
 {% endfor %}
 
-    <input type="hidden" name="url" value="https://dce-course-info.herokuapp.com/course_info/widget.html?course_instance_id=312976&amp;key=title&amp;key=description" />
+    <input type="hidden" name="url" value="/course_info/widget.html?course_instance_id=312976&amp;key=title&amp;key=description" />
     <input type="hidden" name="width" value="100%" />
     <input type="hidden" name="height" value="100%" />
     <input type="hidden" name="title" value="Course Info" />
