@@ -3,12 +3,22 @@
 {% block extra_css %}
 {% endblock %}
 
+{% block extra_js %}
+
+    <script type="text/javascript" charset="utf8">
+    $(document).ready( function () {
+        console.log(window.innerWidth);
+        console.log(window.innerHeight);
+    });
+    </script>
+{% endblock %}
+
 {% block content %}
 
 <div id="course_info_container" class="container-fluid">
 
 {% for field in fields  %}
-    <div>{{ field.value }}</div>
+    <div>{% autoescape off %}{{ field.value }}{% endautoescape %}</div>
 {% endfor %}
 
 </div>
