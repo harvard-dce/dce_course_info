@@ -75,10 +75,18 @@ def widget(request):
 
 
 def editor(request):
-    #course_instance_id = request.POST.get('lis_course_offering_sourcedid')
-    course_instance_id = "312976"
+    print("hello reinhard")
+    print("settings.COURSE_INSTANCE_ID: " + str(settings.COURSE_INSTANCE_ID))
+    if settings.COURSE_INSTANCE_ID :
+        #course_instance_id = "312976"
+        course_instance_id = settings.COURSE_INSTANCE_ID
+    else :
+        course_instance_id = request.POST.get('lis_course_offering_sourcedid')
+    print("course_instance_id: " + course_instance_id)
+
     keys = ['course.registrar_code_display','title','description','meeting_time','location','instructors_display']
     course_context = __course_context(request,course_instance_id,keys)
+    course_context['line_guestimate'] =keys*2
     #print(request.GET)
     #print(request.POST)
     #print(request.POST.get('launch_presentation_return_url'))
