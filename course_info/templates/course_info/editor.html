@@ -4,7 +4,19 @@
 {% endblock %}
 
 {% block extra_js %}
-    <script src="{% static 'js/course_info_editor.js' %}"></script>
+ $(document).ready( function () {
+    $('#course_edit_form').submit(function(event){
+        console.log('hello reinhard');
+        var p = $(location).attr('protocol');
+        var h = $(location).attr('host');
+        var widget_url = p+ "://" + h+ "course_info/widget.html?course_instance_id=" + {{ course_instance_id }};
+        widget_url += "&amp;key=title&amp;key=description";
+        var widget_url =  $('#widget_url').val();
+        $('#widget_url').val(widget_url);
+        console.log("widget_url: " + widget_url);
+    });
+
+});
 {% endblock %}
 
 {% block content %}
@@ -16,7 +28,7 @@
 
 <div id="course_info_container" class="container-fluid">
 
-<form action="{{ launch_presentation_return_url }}" method="get">
+<form action="{{ launch_presentation_return_url }}" id="course_edit_form" method="get">
 
 
 
@@ -24,7 +36,7 @@
     <div><input type="checkbox" name="{{ field.key }} checked">{{ field.value }}</div>
 {% endfor %}
 
-    <input type="hidden" name="url" value="/course_info/widget.html?course_instance_id=312976&amp;key=title&amp;key=description" />
+    <input type="hidden" id="widget_url" name="url" value="" />
     <input type="hidden" name="width" value="100%" />
     <input type="hidden" name="height" value="100%" />
     <input type="hidden" name="title" value="Course Info" />

@@ -56,7 +56,7 @@ def lti_launch(request):
 
 def __course_context(request,course_instance_id,keys):
     course_info = ICommonsApi.from_request(request).get_course_info(course_instance_id)
-    context = { 'fields':[]}
+    context = { 'fields':[], 'course_instance_id': course_instance_id}
     for key in keys :
         if '.' in key:
             keyparts = key.split('.')
