@@ -75,13 +75,13 @@ def widget(request):
 
 
 def editor(request):
-    # hard code while developing locally
-    course_instance_id = "312976"
+    course_instance_id = request.POST.get('lis_course_offering_sourcedid')
+    #course_instance_id = "312976"
     keys = ['course.registrar_code_display','title','description','meeting_time','location','instructors_display']
     course_context = __course_context(request,course_instance_id,keys)
-    print(request.GET)
-    print(request.POST)
-    print(request.POST.get('launch_presentation_return_url'))
+    #print(request.GET)
+    #print(request.POST)
+    #print(request.POST.get('launch_presentation_return_url'))
     course_context['launch_presentation_return_url'] = request.POST.get('launch_presentation_return_url')
     return render(request, 'course_info/editor.html',course_context)
 
