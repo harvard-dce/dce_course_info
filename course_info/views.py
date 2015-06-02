@@ -71,17 +71,16 @@ def widget(request):
     course_instance_id = request.GET.get('course_instance_id')
     return render(request, 'course_info/widget.html',
                   __course_context(request,course_instance_id,
-                    request.GET.getlist('key')))
+                    request.GET.getlist('f')))
 
 
 def editor(request):
     # hard code while developing locally
     course_instance_id = "312976"
-    keys = ['title','description']
+    keys = ['course.registrar_code_display','title','description','meeting_time','location','instructors_display']
     course_context = __course_context(request,course_instance_id,keys)
     print(request.GET)
     print(request.POST)
-    print("Why isn't it here?")
     print(request.POST.get('launch_presentation_return_url'))
     course_context['launch_presentation_return_url'] = request.POST.get('launch_presentation_return_url')
     return render(request, 'course_info/editor.html',course_context)
