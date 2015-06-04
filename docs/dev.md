@@ -39,6 +39,10 @@ CREATE DATABASE
 template1=# create user dce_course_info with password 'yabadabadoo';
 CREATE ROLE
 
+
+6. Install redis
+brew install redis
+
 6. create a .env file with the variables described in heroku.md
 
 Something like this:

@@ -110,6 +110,11 @@ LTI_OAUTH_CREDENTIALS = {
         'LTI_OAUTH_COURSE_INFO_CONSUMER_SECRET')
 }
 
+# if you want to test locally and aren't getting real course instance ids from LTI launch params.
+COURSE_INSTANCE_ID=env('COURSE_INSTANCE_ID')
+if COURSE_INSTANCE_ID :
+    COURSE_INSTANCE_ID=str(COURSE_INSTANCE_ID)
+
 ICOMMONS_API_TOKEN= env('ICOMMONS_API_TOKEN')
 
 ICOMMONS_BASE_URL= env('ICOMMONS_BASE_URL')
