@@ -18,6 +18,7 @@ def tool_config(request):
 
     app_config = settings.LTI_APPS['course_info']
 
+
     launch_url = request.build_absolute_uri(reverse('lti_launch'))
 
     editor_settings = {
@@ -55,6 +56,14 @@ def lti_launch(request):
 
 
 def __course_context(request,course_instance_id,keys):
+    key2class={
+            'title': 'course_info_textHeader1',
+            'course.registrar_code_display':'course_info_textHeader2',
+            'term.display_name':'course_info_textHeader2',
+            'instructors_display':'course_info_textHeader2',
+            'location':'course_info_textHeader2',
+            'meeting_time':'course_info_textHeader2'
+    }
     course_info = ICommonsApi.from_request(request).get_course_info(course_instance_id)
     context = { 'fields':[], 'course_instance_id': course_instance_id}
     for key in keys :
@@ -63,8 +72,24 @@ def __course_context(request,course_instance_id,keys):
             field  = { 'key': key, 'value': course_info[keyparts[0]][keyparts[1]]}
         else :
             field  = { 'key': key, 'value': course_info[key]}
+        field['class']=''
+        if key in key2class :
+            field['class']= key2class[key]
         context['fields'].append(field)
+    context['fields'] = __mungeFields(context['fields'])
     return context
+
+def __mungeFields(fields):
+    for field in fields :
+        if field['key'] == 'notes' :
+            field['value']= '<b>Note:</b> ' + field['value']
+        elif field['key'] == 'location' :
+            field['value'] = '<b>Location:</b> ' + field['value']
+        elif field['key'] == 'meeting_time' :
+            field['value'] = '<b>Meeting Time:</b> ' + field['value']
+        field['value'] = field['value'].replace('<br /> <br />','<br />')
+    return fields
+
 
 @require_GET
 def widget(request):
@@ -75,21 +100,15 @@ def widget(request):
 
 
 def editor(request):
-    print("hello reinhard")
-    print("settings.COURSE_INSTANCE_ID: " + str(settings.COURSE_INSTANCE_ID))
     if settings.COURSE_INSTANCE_ID :
         #course_instance_id = "312976"
         course_instance_id = settings.COURSE_INSTANCE_ID
     else :
         course_instance_id = request.POST.get('lis_course_offering_sourcedid')
     print("course_instance_id: " + course_instance_id)
-
-    keys = ['course.registrar_code_display','title','description','meeting_time','location','instructors_display']
+    keys = ['title','course.registrar_code_display','term.display_name','instructors_display','location','meeting_time','description','notes']
     course_context = __course_context(request,course_instance_id,keys)
-    course_context['line_guestimate'] =keys*2
-    #print(request.GET)
-    #print(request.POST)
-    #print(request.POST.get('launch_presentation_return_url'))
+    #course_context['line_guestimate'] =keys*2
     course_context['launch_presentation_return_url'] = request.POST.get('launch_presentation_return_url')
     return render(request, 'course_info/editor.html',course_context)
 
