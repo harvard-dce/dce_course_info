@@ -18,4 +18,8 @@ requirejs(["//your.trusted.server/static/js/consumer/iframeResizer.js"], functio
 
 Set log to false once you're satisfied it's working (will emit lots of messages to js console). 
 
-See the docs directory for instructions on how to run locally and in heroku.
+It's annoying that this is neccesary, but that's the way things are with cross-domain iframes.
+
+See https://github.com/davidjbradshaw/iframe-resizer for more details on that.
+
+See the docs directory for instructions on how to run this app locally and in heroku.
