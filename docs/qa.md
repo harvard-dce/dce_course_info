@@ -2,11 +2,6 @@
 
 ### Notes
 
-Known issue: at the moment, it is not possible for the generated
-course info widgets to size themselves properly. Ideally they would
-always be big enough to display all their content without scrollbars
-appearing, but since the iframed page has no controll over the iframe
-dimensions, we can't currently do this.
 
 ### User Story Checklist
 
