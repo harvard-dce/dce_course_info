@@ -11,8 +11,6 @@ import logging
 log = logging.getLogger(__name__)
 
 API_PATH = '/api/course/v2/'
-MAX_ITEMS_PER_REQUEST = 100
-MAX_CONCURRENT_REQUESTS = 4
 
 class CourseUpdateError(dRestRequestError):
     pass
