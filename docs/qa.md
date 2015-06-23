@@ -32,6 +32,8 @@ As a student...
   the fields the instructor has chosen.
 
 * Any urls in this widget should open up in a new tab.
+* I should not see double scrollbars (scrollbar in the widget iframe) no matter how I resize the page 
+
 
 
 
