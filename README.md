@@ -9,15 +9,11 @@ Authors click an icon, which opens a widget editor window to let them choose
 which fields they would like to include in the widget. The widget is then 
 inserted into the page, and is live-updated using the icommons api.
 
-In order for the iframes to resize properly, you'll have to add the following
+In order for the iframes to size properly, you'll have to add the following
 snippet to your canvas global js file:
 
 course_info/static/js/consumer/global.js
 
-Set log to false once you're satisfied it's working (will emit lots of messages to js console). 
-
 It's annoying that this is necessary, but that's the way things are with cross-domain iframes.
-
-See https://github.com/davidjbradshaw/iframe-resizer for more details on that.
 
 See the docs directory for instructions on how to run this app locally and in heroku.
