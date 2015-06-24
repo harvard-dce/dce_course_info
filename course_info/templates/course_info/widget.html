@@ -20,8 +20,9 @@ setTimeout(syncFrame, 0);
 function syncFrame() {
   window.parent.postMessage(
     {
-      request: 'changeHeight',
-      href: document.location.href
+        request: 'changeHeight',
+        href: document.location.href,
+        height: document.body.scrollHeight
     },
     '*'
   );
