@@ -9,12 +9,10 @@ Authors click an icon, which opens a widget editor window to let them choose
 which fields they would like to include in the widget. The widget is then 
 inserted into the page, and is live-updated using the icommons api.
 
-In order for the iframes to resize properly, you'll have to add something like the following
-to your canvas global js file:
+In order for the iframes to resize properly, you'll have to add the following
+snippet to your canvas global js file:
 
-requirejs(["//your.trusted.server/static/js/consumer/iframeResizer.js"], function(iframeResize) {
-    iframeResize({log:true});
-});
+course_info/static/js/consumer/global.js
 
 Set log to false once you're satisfied it's working (will emit lots of messages to js console). 
 
