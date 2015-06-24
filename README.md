@@ -16,7 +16,7 @@ course_info/static/js/consumer/global.js
 
 Set log to false once you're satisfied it's working (will emit lots of messages to js console). 
 
-It's annoying that this is neccesary, but that's the way things are with cross-domain iframes.
+It's annoying that this is necessary, but that's the way things are with cross-domain iframes.
 
 See https://github.com/davidjbradshaw/iframe-resizer for more details on that.
 

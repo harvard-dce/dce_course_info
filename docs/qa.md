@@ -2,6 +2,11 @@
 
 ### Notes
 
+Test on these servers: 
+
+https://harvard.beta.instructure.com/accounts/38
+
+https://harvard.test.instructure.com/accounts/38
 
 ### User Story Checklist
 
@@ -13,7 +18,7 @@ As a course content author...
 * If I create a new page, or open an existing one, or edit the
   syllabus, an "i" icon on the rich text editor will appear.
 
-* If I click this icon, a popop window will appear, giving me fields
+* If I click this icon, a popup window will appear, giving me fields
   to choose from to display. By default, all fields are checked.
 
 * I should be able to select any combination of fields and have them
@@ -32,7 +37,7 @@ As a student...
   the fields the instructor has chosen.
 
 * Any urls in this widget should open up in a new tab.
-* I should not see double scrollbars (scrollbar in the widget iframe) no matter how I resize the page 
+* I should not see double scrollbars (scrollbar in the widget iframe) unless I resize the page
 
 
 
