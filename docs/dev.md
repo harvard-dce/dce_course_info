@@ -47,20 +47,16 @@ brew install redis
 
 Something like this:
 
-DJANGO_SETTINGS_MODULE=dce_course_info.settings
-DJANGO_SECRET_KEY=make_something_actually_secret
-LTI_OAUTH_COURSE_INFO_CONSUMER_KEY=your_key
-LTI_OAUTH_COURSE_INFO_CONSUMER_SECRET=your_secret
-DATABASE_URL=postgres://dce_course_info:password@127.0.0.1:5432/dce_course_info
-DJANGO_ADMIN_NAME=somebody
-DJANGO_ADMIN_EMAIL=somebody@harvard.edu
-DJANGO_SERVER_EMAIL=somebody@harvard.edu
-DJANGO_DATABASE_DEFAULT_ENGINE=django_postgrespool
-MANDRILL_APIKEY=your_api_key
-ICOMMONS_BASE_URL=https://icommons.harvard.edu
-ICOMMONS_API_TOKEN=your_api_token
-DREST_DEBUG=55
-REDIS_URL=http://localhost:6379
+    DJANGO_SETTINGS_MODULE=dce_course_info.settings
+    DJANGO_SECRET_KEY=make_something_actually_secret
+    LTI_OAUTH_COURSE_INFO_CONSUMER_KEY=your_key
+    LTI_OAUTH_COURSE_INFO_CONSUMER_SECRET=your_secret
+    DATABASE_URL=postgres://dce_course_info:password@127.0.0.1:5432/dce_course_info
+    DJANGO_DATABASE_DEFAULT_ENGINE=django_postgrespool
+    ICOMMONS_BASE_URL=https://icommons.harvard.edu
+    ICOMMONS_API_TOKEN=your_api_token
+    DREST_DEBUG=55
+    REDIS_URL=http://localhost:6379
 
 Do not stick your .env file in source control. This stuff is sensitive.
 

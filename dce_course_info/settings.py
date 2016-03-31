@@ -26,7 +26,6 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'djrill',
     'course_info'
 )
 
@@ -82,16 +81,6 @@ LTI_APPS = {
 
 SECRET_KEY = env('DJANGO_SECRET_KEY', required=True)
 
-# this tells django who to send app error emails to
-ADMINS = ((env('DJANGO_ADMIN_NAME'), env('DJANGO_ADMIN_EMAIL')),)
-
-# From: addr of the app error emails
-SERVER_EMAIL = env('DJANGO_SERVER_EMAIL', 'root@localhost')
-
-# use mandrill to send app error emails
-EMAIL_BACKEND = "djrill.mail.backends.djrill.DjrillBackend"
-MANDRILL_API_KEY = env('MANDRILL_APIKEY')
-
 # depends on DATABASE_URL being set in your env. See https://github.com/kennethreitz/dj-database-url
 # you can also set DJANGO_DATABASE_DEFAULT_ENGINE if you want to override the
 # default engine, e.g., using https://github.com/kennethreitz/django-postgrespool/
@@ -138,11 +127,6 @@ LOGGING = {
         },
     },
     'handlers': {
-        'mail_admins': {
-            'level': 'ERROR',
-            'filters': ['require_debug_false'],
-            'class': 'django.utils.log.AdminEmailHandler'
-        },
         'console': {
             'level': 'DEBUG',
             'class': 'logging.StreamHandler',
@@ -154,7 +138,7 @@ LOGGING = {
     },
     'loggers': {
         'django.request': {
-            'handlers': ['mail_admins', 'console'],
+            'handlers': ['console'],
             'level': 'ERROR',
             'propagate': True,
         },
