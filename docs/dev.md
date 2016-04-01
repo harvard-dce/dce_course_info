@@ -52,7 +52,6 @@ Something like this:
     LTI_OAUTH_COURSE_INFO_CONSUMER_KEY=your_key
     LTI_OAUTH_COURSE_INFO_CONSUMER_SECRET=your_secret
     DATABASE_URL=postgres://dce_course_info:password@127.0.0.1:5432/dce_course_info
-    DJANGO_DATABASE_DEFAULT_ENGINE=django_postgrespool
     ICOMMONS_BASE_URL=https://icommons.harvard.edu
     ICOMMONS_API_TOKEN=your_api_token
     DREST_DEBUG=55

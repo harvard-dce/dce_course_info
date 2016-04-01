@@ -83,11 +83,9 @@ SECRET_KEY = env('DJANGO_SECRET_KEY', required=True)
 
 # depends on DATABASE_URL being set in your env. See https://github.com/kennethreitz/dj-database-url
 # you can also set DJANGO_DATABASE_DEFAULT_ENGINE if you want to override the
-# default engine, e.g., using https://github.com/kennethreitz/django-postgrespool/
-# default engine, e.g., using https://github.com/kennethreitz/django-postgrespool/
 DATABASES = {
     'default': dj_database_url.config(
-        engine=env('DJANGO_DATABASE_DEFAULT_ENGINE', None))
+        engine=env('DJANGO_DATABASE_DEFAULT_ENGINE', 'django.db.backends.postgresql_psycopg2'))
 }
 
 REDIS_URL = env('REDIS_URL')
